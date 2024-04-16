@@ -4,6 +4,7 @@ package com.teste.restapp.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -14,15 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.teste.restapp.model.Usuario;
 import com.teste.restapp.repository.UsuarioRepository;
 
-
-
 @RestController
 @RequestMapping("/usuarios")
 public class UsuarioController {
 
     @Autowired
     private UsuarioRepository repository;
-    
+    @CrossOrigin
     @GetMapping
     public List<Usuario> listar(){
         return repository.findAll();
