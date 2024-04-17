@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.teste.restapp.model.Usuario;
@@ -51,5 +52,9 @@ public class UsuarioController {
         }else{
             return "Usuario não encontrado";
         }
+    }
+    @GetMapping("/buscarPorEmail")
+    public Usuario buscarPorEmail(@RequestParam String email) {
+        return repository.findByEmail(email);
     }
 }
